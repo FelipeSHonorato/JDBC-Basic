@@ -1,18 +1,16 @@
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 public class TestaRemocao {
 
     public static void main(String[] args) throws SQLException {
 
+
         ConnectionFactory criaConexao = new ConnectionFactory();
         Connection connection = criaConexao.recuperarConexao();
 
-        Statement acao = connection.createStatement();
-
-        acao.execute("DELETE FROM PRODUTO WHERE ID > 2");
+        PreparedStatement acao = connection.prepareStatement("DELETE FROM PRODUTO WHERE ID > ?");
+        acao.setInt(1, 2);
+        acao.execute();
 
         Integer linhasRemovidas = acao.getUpdateCount();
 
