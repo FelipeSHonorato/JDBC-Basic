@@ -16,7 +16,7 @@ public class TestaInsercao {  //Efetuando a ação na DB de introduzir novo regi
 
             Integer id = resultado.getInt(1);
             System.out.println("O id criado foi " + id);
-
         }
+        connection.close();
     }
 }

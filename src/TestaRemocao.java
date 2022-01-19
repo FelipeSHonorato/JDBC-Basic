@@ -4,7 +4,6 @@ public class TestaRemocao {
 
     public static void main(String[] args) throws SQLException {
 
-
         ConnectionFactory criaConexao = new ConnectionFactory();
         Connection connection = criaConexao.recuperarConexao();
 
@@ -16,6 +15,7 @@ public class TestaRemocao {
 
         System.out.println("Quantidade de linhas que foram removidas: " + linhasRemovidas);
 
+        connection.close();
         }
     }
 
