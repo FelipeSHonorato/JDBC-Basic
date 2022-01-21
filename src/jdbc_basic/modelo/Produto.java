@@ -1,5 +1,7 @@
 package jdbc_basic.modelo;
 
+//Classe responsável em criar o modelo base para os produtos, informando sua composição e fornecendo acesso a outras classes através do encapsulamento.
+
 public class Produto {
 
     private Integer id;
@@ -46,6 +48,5 @@ public class Produto {
     public String toString() {
         return String.format("O produto é: %d, %s, %s", this.id, this.nome, this.descricao);
     }
-
 
 }

@@ -6,6 +6,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+
+// Classe responsável por configurar a conexão com o banco de dados.
+
 public class ConnectionFactory {
 
     public DataSource dataSource;
@@ -21,8 +24,12 @@ public class ConnectionFactory {
         this.dataSource = comboPooledDataSource;
     }
 
-    public Connection recuperarConexao() throws SQLException {
-        return this.dataSource.getConnection();
+    public Connection recuperarConexao()  {
+        try{
+            return this.dataSource.getConnection();
+        } catch (SQLException e){
+            throw new RuntimeException(e);
+        }
 
     }
 }

@@ -10,7 +10,10 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.List;
+
+//Classe responsável pela criação do front em Swing.
 
 public class ProdutoCategoriaFrame extends JFrame {
 
@@ -25,7 +28,7 @@ public class ProdutoCategoriaFrame extends JFrame {
     private ProdutoController produtoController;
     private CategoriaController categoriaController;
 
-    public ProdutoCategoriaFrame() {
+    public ProdutoCategoriaFrame() throws SQLException {
         super("Produtos");
         Container container = getContentPane();
         setLayout(null);
@@ -175,7 +178,7 @@ public class ProdutoCategoriaFrame extends JFrame {
         }
     }
 
-    private List<Categoria> listarCategoria() {
+    private List<Categoria> listarCategoria() throws SQLException {
         return this.categoriaController.listar();
     }
 
